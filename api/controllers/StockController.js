@@ -18,7 +18,7 @@ module.exports = {
   create:function(req,res,next){
     Stock.create(req.params.all(),function stockCreated(err,stock){
       if(err) return next(err);
-      res.json(stock);
+      res.redirect('/customer/show/' + stock.owner);
     });
   }
 

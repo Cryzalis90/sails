@@ -1,26 +1,70 @@
+<style>
+  a:hover {
+    color: #0f0f0f!important;
+    text-decoration: underline;
+  }
+</style>
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="panel panel-login">
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <h1><%= customer.name %></h1>
-                  <hr>
-                  <h3><%= customer.email %></h3>
-                  <h4><%= customer.state %></h4>
-                  <form action="/stock/new" method="post">
-                    <input type="hidden" value="<%= customer.id %>" name="owner">
-                    <input type="submit" value="Add Stock">
-                  </form>
+  <header>
+    <h3>Customer page</h3>
+  </header>
+  <section>
+    <div class="row">
+      <div class="col-md-8">
+        <article class="blog-post">
+          <div class="blog-post-body">
+            <h2><%= customer.name %></h2>
+            <div class="post-meta"><span><%= customer.email %></span>/<span><i class="fa fa-clock-o"></i><%= customer.state %></span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+            <div class="blog-post-text">
+              <form action="/stock/new" method="post">
+                <input type="hidden" value="<%= customer.id %>" name="owner">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                      <input type="submit" value="Add Stock" tabindex="4" class="form-control btn btn-login">
+                    </div>
+                  </div>
                 </div>
+              </form>
+
+              <p>A newly-developed mathematical method can detect geometric structure in neural activity in the brain. “Previously, in order to understand this structure, scientists needed to relate neural activity to some specific external stimulus,” said Vladimir Itskov, associate professor of mathematics at Penn State University. “Our method is the first to be able to reveal this structure without our knowing an external stimulus ahead of time. We’ve now shown that our new method will allow us to explore the organizational structure of neurons without knowing their function in advance.”</p>
+
               </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-md-4 sidebar-gutter">
+        <aside>
+          <!-- sidebar-widget -->
+          <div class="sidebar-widget">
+            <h3 class="sidebar-title">Stocks test change</h3>
+            <div class="widget-container">
+              <% _.each(customer.stocks,function(stock){ %>
+              <article class="widget-post">
+                <div class="post-image">
+                  <a href="post.html"><img src="/images/90x60-1.jpg" alt=""></a>
+                </div>
+                <div class="post-body">
+                  <h2 style="display:inline"><a href="post.html"><%=stock.symbol %>&nbsp&nbsp&nbsp</a></h2>
+                  <p style="display:inline; font-size: 11px;font-style: italic;color: #B1B1B1;">
+                    <span><i class="fa fa-clock-o"></i><%=stock.nuber_of_shares %></span>
+                  </p>
+                  <div class="post-meta">
+                    <span><a href="/stock/show/<%=stock.id%>"><i class="fa fa-comment-o"></i>Show&nbsp</a></span>
+                    <span><a href="/stock/edit/<%=stock.id%>"><i class="fa fa-comment-o"></i>Edit&nbsp</a></span>
+                    <span><a href="/stock/destroy/<%=stock.id%>"><i class="fa fa-comment-o"></i>Delete&nbsp</a></span>
+                  </div>
+                </div>
+              </article>
+              <% })%>
+
             </div>
           </div>
-        </div>
+
       </div>
+      </aside>
     </div>
-  </div>
 </div>
+</section>
+</div><!-- /.container -->
+
