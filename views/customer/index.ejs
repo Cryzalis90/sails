@@ -1,0 +1,31 @@
+<style>
+  a:hover {
+    color: #0f0f0f!important;
+    text-decoration: underline;
+  }
+</style>
+<div class="col-md-6 sidebar-gutter">
+    <div class="sidebar-widget">
+      <h3 class="sidebar-title">Customers</h3>
+      <div class="widget-container">
+        <% _.each(customers,function(customer){ %>
+        <article class="widget-post">
+          <div class="post-image">
+            <a href="post.html"><img src="/images/90x60-1.jpg" alt=""></a>
+          </div>
+          <div class="post-body">
+            <h2 style="display:inline"><a href="post.html"><%=customer.name %>&nbsp&nbsp&nbsp</a></h2>
+            <p style="display:inline; font-size: 11px;font-style: italic;color: #B1B1B1;">
+              <span><i class="fa fa-clock-o"></i><%=customer.email %></span>
+            </p>
+            <div class="post-meta">
+              <span><a href="/customer/show/<%=customer.id%>"><i class="fa fa-comment-o"></i>Show&nbsp</a></span>
+              <span><a href="/customer/edit/<%=customer.id%>"><i class="fa fa-comment-o"></i>Edit&nbsp</a></span>
+              <span><a href="/customer/destroy/<%=customer.id%>"><i class="fa fa-comment-o"></i>Delete&nbsp</a></span>
+            </div>
+          </div>
+        </article>
+        <% })%>
+      </div>
+    </div>
+</div>
